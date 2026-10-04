@@ -3,7 +3,7 @@
   "nodes": [
     {
       "parameters": {
-        "path": "dc093ca7-20b6-420f-a85c-400c68dbc6b9"
+        "path": "YOUR_MCP_SERVER_PATH"
       },
       "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
       "typeVersion": 2.1,
@@ -13,11 +13,11 @@
       ],
       "id": "4a6ded44-dedb-4560-ab39-feed9c6d460e",
       "name": "MCP Server Trigger",
-      "webhookId": "dc093ca7-20b6-420f-a85c-400c68dbc6b9"
+      "webhookId": "YOUR_MCP_SERVER_PATH"
     },
     {
       "parameters": {
-        "sendTo": "=ruprah.gk@gmail.com",
+        "sendTo": "=you@example.com",
         "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
         "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
         "options": {}
@@ -30,23 +30,17 @@
       ],
       "id": "29c4e777-a84a-4eb6-82b3-03b1f81357d9",
       "name": "Send a message in Gmail",
-      "webhookId": "5691d18a-632e-42af-9673-8bc7005f0221",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "azTgHbjgAlmpE60G",
-          "name": "Gmail account"
-        }
-      }
+      "webhookId": "5691d18a-632e-42af-9673-8bc7005f0221"
     },
     {
       "parameters": {
         "operation": "update",
         "fileId": {
           "__rl": true,
-          "value": "1VxJ4ScG91SfES3xjdk2z2NNIr38PZPFvE8kDT1RdWHw",
+          "value": "YOUR_GOOGLE_DOC_ID",
           "mode": "list",
           "cachedResultName": "GitHub Repositories",
-          "cachedResultUrl": "https://docs.google.com/document/d/1VxJ4ScG91SfES3xjdk2z2NNIr38PZPFvE8kDT1RdWHw/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/document/d/YOUR_GOOGLE_DOC_ID/edit?usp=drivesdk"
         },
         "changeFileContent": true,
         "inputDataFieldName": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Input_Data_Field_Name', ``, 'string') }}",
@@ -59,13 +53,7 @@
         208
       ],
       "id": "088d39d8-92a0-420b-9d96-93c53452192c",
-      "name": "Update file in Google Drive",
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "1Xxw5ZPaxMAgkx9f",
-          "name": "Google Drive account"
-        }
-      }
+      "name": "Update file in Google Drive"
     }
   ],
   "pinData": {},
@@ -100,8 +88,7 @@
   },
   "versionId": "04017f97-c43b-4dd7-8103-3e36adae8a14",
   "meta": {
-    "templateCredsSetupCompleted": true,
-    "instanceId": "74b2a00307aaae75232488389b08d4321d5f940645b5bfb5530bcc7e1150ed6d"
+    "templateCredsSetupCompleted": true
   },
   "nodeGroups": [],
   "id": "tYKd8J7dxdOCA5QW",

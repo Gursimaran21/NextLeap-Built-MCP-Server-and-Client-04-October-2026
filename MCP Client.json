@@ -30,7 +30,7 @@
     },
     {
       "parameters": {
-        "endpointUrl": "https://gursimarankaur.app.n8n.cloud/mcp/dc093ca7-20b6-420f-a85c-400c68dbc6b9",
+        "endpointUrl": "https://your-instance.n8n.cloud/mcp/YOUR_MCP_SERVER_PATH",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
@@ -55,13 +55,7 @@
         208
       ],
       "id": "c84805cd-9734-4c68-b116-020e43603ab9",
-      "name": "GitHub MCP Client",
-      "credentials": {
-        "httpBearerAuth": {
-          "id": "fSF49bh0vuPUstOU",
-          "name": "Bearer Auth account"
-        }
-      }
+      "name": "GitHub MCP Client"
     },
     {
       "parameters": {
@@ -80,14 +74,7 @@
         208
       ],
       "id": "862a8f28-4b8e-4d2e-a8a6-0ac9a0aa3384",
-      "name": "OpenAI Chat Model",
-      "credentials": {
-        "openAiApi": {
-          "id": null,
-          "name": "",
-          "__aiGatewayManaged": true
-        }
-      }
+      "name": "OpenAI Chat Model"
     },
     {
       "parameters": {
@@ -168,8 +155,7 @@
   },
   "versionId": "40519a98-0c5c-4ea2-8b84-2626eaaf8397",
   "meta": {
-    "templateCredsSetupCompleted": true,
-    "instanceId": "74b2a00307aaae75232488389b08d4321d5f940645b5bfb5530bcc7e1150ed6d"
+    "templateCredsSetupCompleted": true
   },
   "nodeGroups": [],
   "id": "4BaYnKWS5YpUmCiJ",

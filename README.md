@@ -49,12 +49,12 @@ flowchart TB
     end
 
     subgraph TOOLS["🔌 Tools attached to the agent"]
-        C1["🔗 Own MCP Client<br/><i>your-instance/mcp/dc093ca7…</i>"]
+        C1["🔗 Own MCP Client<br/><i>your-instance/mcp/YOUR_PATH…</i>"]
         C2["🔗 GitHub MCP Client<br/><i>api.githubcopilot.com/mcp/</i>"]
     end
 
     subgraph SERVER["🖥️ MCP Server workflow — `MCP Server.json`"]
-        T["⚡ MCP Server Trigger<br/><i>/mcp/dc093ca7…</i>"] --> T1["📄 Update file in Google Drive"]
+        T["⚡ MCP Server Trigger<br/><i>/mcp/YOUR_PATH…</i>"] --> T1["📄 Update file in Google Drive"]
         T --> T2["✉️ Send a message in Gmail"]
     end
 
@@ -125,13 +125,13 @@ Both tool nodes connect to the trigger via the **`ai_tool`** connection type. Th
 The trigger's `path` is the MCP URL segment:
 
 ```text
-dc093ca7-20b6-420f-a85c-400c68dbc6b9
+YOUR_MCP_SERVER_PATH
 ```
 
 Once the workflow is **active**, n8n serves MCP at:
 
 ```text
-https://<your-n8n-base-url>/mcp/dc093ca7-20b6-420f-a85c-400c68dbc6b9
+https://<your-n8n-base-url>/mcp/YOUR_MCP_SERVER_PATH
 ```
 
 > On n8n Cloud, `<your-n8n-base-url>` is your `https://<workspace>.app.n8n.cloud`. The path acts as a **capability secret** — anyone with the URL can call your tools, so treat it like a password and regenerate it if it leaks.
@@ -159,7 +159,7 @@ A standard AI Agent with **two MCP Client Tools** attached — each pointing at 
 
 | MCP Client Tool | Endpoint URL | Auth |
 | --- | --- | --- |
-| **Own MCP Client** | `https://gursimarankaur.app.n8n.cloud/mcp/dc093ca7-20b6-420f-a85c-400c68dbc6b9` | None (secret path) |
+| **Own MCP Client** | `https://your-instance.n8n.cloud/mcp/YOUR_MCP_SERVER_PATH` | None (secret path) |
 | **GitHub MCP Client** | `https://api.githubcopilot.com/mcp/` | **Bearer token** (`httpBearerAuth`) |
 
 **Two facts worth internalising:**
@@ -230,7 +230,7 @@ Compare these:
    | Update file in Google Drive | `Google Drive account` | `https://www.googleapis.com/auth/drive` |
    | Send a message in Gmail | `Gmail account` | `https://www.googleapis.com/auth/gmail.send` |
 
-3. **Update file in Google Drive → File** → select **your own** Google Doc (the exported file ID belongs to the original author's document).
+3. **Update file in Google Drive → File** → select **your own** Google Doc. The committed file ships with the placeholder `YOUR_GOOGLE_DOC_ID`.
 4. **Send a message in Gmail → Send To** → set your email address.
 5. Click **Active**, then open the trigger and copy the **MCP endpoint URL**.
 
@@ -241,7 +241,7 @@ Compare these:
    ```text
    https://<your-base-url>/mcp/<your-path>
    ```
-   > The exported URL points at the original author's n8n Cloud instance. **This will not work until you change it.**
+   > The committed endpoint is a placeholder — `https://your-instance.n8n.cloud/mcp/YOUR_MCP_SERVER_PATH`. **Replace both parts** or the client cannot reach your server.
 3. **GitHub MCP Client → Endpoint URL** → `https://api.githubcopilot.com/mcp/`
 4. **GitHub MCP Client → Authentication** → `Bearer Auth` → paste a GitHub token with MCP access (a fine-grained PAT or a Copilot premium-request token).
 5. **OpenAI Chat Model** → on n8n Cloud, leave the AI Gateway credential; if self-hosted, attach your own `OpenAiApi` key.
